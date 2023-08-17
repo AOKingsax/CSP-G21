@@ -4,7 +4,7 @@ pipeline {
     AWS_ACCESS_KEY_ID = credentials('ACCESS_KEY')
     AWS_SECRET_ACCESS_KEY = credentials('SECRET_ACCESS_KEY')
     AWS_DEFAULT_REGION = "us-east-1"
-    PRIVATE-KEY = credentials('JENKINS-KEY')
+    PRIVATE_KEY = credentials('JENKINS-KEY')
   }
   stages {
     stage('Checkout Code') {
@@ -25,7 +25,7 @@ pipeline {
     stage('Deploy Wordpress to production') {
       steps {
         dir('ansible')
-        sh 'ansible-playbook -i inventory.txt deploy.yml --private-key=$PRIVATE-KEY'
+        sh 'ansible-playbook -i inventory.txt deploy.yml --private-key=$PRIVATE_KEY'
       }
     }
 }
