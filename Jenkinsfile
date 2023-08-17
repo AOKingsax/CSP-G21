@@ -24,7 +24,7 @@ pipeline {
 
     stage('Deploy Wordpress to production') {
       steps {
-        dir('ansible')
+        sh 'cd $workspace/ansible/'
         sh 'ansible-playbook -i inventory.txt deploy.yml --private-key=$PRIVATE_KEY'
       }
     }
