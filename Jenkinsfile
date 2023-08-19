@@ -28,11 +28,12 @@ pipeline {
 
     stage('Create env variable for docker compose') {
       steps {
-          sh 'cd ansible/roles/wordpress/files/'
+        dir('ansible/roles/wordpress/files/') {
           sh './env.sh'
         }
       }
-
+    }
+    
     stage('Confirm if env variable was created') {
       steps {
         dir('ansible/roles/wordpress/files/') {
