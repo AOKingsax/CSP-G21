@@ -5,6 +5,10 @@ pipeline {
     AWS_SECRET_ACCESS_KEY = credentials('SECRET_ACCESS_KEY')
     AWS_DEFAULT_REGION = "us-east-1"
     PRIVATE_KEY = credentials('JENKINS-KEY')
+    RP = credentials('ROOT_PASSWORD')
+    DBN = credentials('DATABASE_NAME')
+    USR = credentials('USER')
+    USR_PSD = credentials('USER_PASSWORD')
   }
   stages {
     stage('Checkout Code') {
@@ -21,6 +25,21 @@ pipeline {
     //     sh 'terraform apply' 
     //   }
     // }
+
+    stage('Create env variable for docker compose') {
+      steps {
+          sh 'cd ansible/roles/wordpress/files/'
+          sh './env.sh'
+        }
+      }
+
+    stage('Confirm if env variable was created') {
+      steps {
+        dir('ansible/roles/wordpress/files/') {
+          sh 'echo .env'
+        }
+      }
+    }
 
     stage('Deploy Wordpress to production') {
       steps {

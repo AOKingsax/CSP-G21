@@ -1,5 +1,5 @@
 [monitor-server]
-54.165.91.125 ansible_ssh_user='ubuntu'
+18.232.63.149 ansible_ssh_user='ubuntu'
 
 [node-servers]
-54.175.151.107 ansible_ssh_user='ubuntu'
+3.88.48.135 ansible_ssh_user='ubuntu'

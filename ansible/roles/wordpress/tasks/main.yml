@@ -1,7 +1,7 @@
-# - name: move env file to slave
-#   copy:
-#     src: files/.env
-#     dest: /home/ubuntu
+- name: move env file to slave
+  copy:
+    src: files/.env
+    dest: /home/ubuntu
 
 - name: run docker compose
   shell: docker-compose up -d
