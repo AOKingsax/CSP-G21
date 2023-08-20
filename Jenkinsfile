@@ -38,7 +38,6 @@ pipeline {
       steps {
         dir('ansible/roles/wordpress/files/') {
           sh 'cat .env'
-          sh 'cat dot.txt'
         }
       }
     }
