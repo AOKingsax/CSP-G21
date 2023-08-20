@@ -37,7 +37,8 @@ pipeline {
     stage('Confirm if env variable was created') {
       steps {
         dir('ansible/roles/wordpress/files/') {
-          sh 'echo .env'
+          sh 'cat .env'
+          sh 'cat dot.txt'
         }
       }
     }
