@@ -1,4 +1,4 @@
-#!usr/bin/bash
+#!usr/bin/sudo bash
 
 touch .env
 
