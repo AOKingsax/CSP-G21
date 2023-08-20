@@ -1,4 +1,4 @@
-#!/usr/sbin/nologin
+#!/usr/bin/bash
 
 touch .env
 
